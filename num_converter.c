@@ -2,12 +2,13 @@
 #include <unistd.h>
 #include <stdint.h>
 #include "main.h"
+
 void pos_num_converter(int number, int base, char *tmp_buff)
 {
-	int f_digit;
+	int f_digit, i, position;
 	char buff[65];
 
-	if(number == 0)
+	if (number == 0)
 	{
 		*tmp_buff++ = '0';
 		*tmp_buff = 0;
@@ -15,12 +16,13 @@ void pos_num_converter(int number, int base, char *tmp_buff)
 	}
 
 
-	for (int i = 0; i < 65; i++)
+	for (i = 0; i < 65; i++)
 	{
 		buff[i] = 0;
 	}
 
-	int position = 0;
+	position = 0;
+
 	while (number)
 	{
 		f_digit = number % base;
@@ -34,8 +36,7 @@ void pos_num_converter(int number, int base, char *tmp_buff)
 		number /= base;
 	}
 
-
-	for(int i = position-1; i != 0; i--)
+	for (i = position - 1; i != 0; i--)
 	{
 		*tmp_buff++ = buff[i];
 	}

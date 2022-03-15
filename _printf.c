@@ -1,6 +1,3 @@
-/*
-#include "main.h"
-*/
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -14,25 +11,31 @@
 int _printf(const char *format, ...)
 {
 	/*
-		The _printf has two different modes
-		mode = 0 writes directly to the console
-		mode = 1 takes the directive and write the placeholder value
-	*/
-	va_list list;
-	va_start(list, format);
-	int i, counter_print, num;
+	 *	The _printf has two different modes
+	 *	mode = 0 writes directly to the console
+	 *	mode = 1 takes the directive and write the placeholder value
+	 */
+
+	int counter_print;
+	int num;
 	int mode;
+	int j;
 	char s_chr;
 
+	va_list list;
+	va_start(list, format);
+
 	/*Initialize variables*/
-	i = 0;
+
+	j = 0;
 	counter_print = 0;
 	mode = 0;
 
 	/*Review format is not null*/
-	if (format==NULL)
+
+	if (format == NULL)
 	{
-		return(-1);
+		return (-1);
 	}
 
 	while (*format) /* While format is not null */
@@ -42,12 +45,13 @@ int _printf(const char *format, ...)
 			if (*format == '%')
 			{
 				mode = 1;
-			} else {
+			} else
+			{
 				write(1, &*format, 1);
 			}
 		} else if (mode == 1)
 		{
-			switch(*format)
+			switch (*format)
 			{
 				case 'c':
 				{
@@ -59,7 +63,7 @@ int _printf(const char *format, ...)
 				{
 
 					const char *s_str = va_arg(list, const char *);
-					while(*s_str)
+					while (*s_str)
 					{
 						write(1, &*s_str++, 1);
 					}
@@ -68,9 +72,9 @@ int _printf(const char *format, ...)
 				case 'd':
 				{
 					char num_buff[32];
-					num = va_arg(list, int); 
+					num = va_arg(list, int);
 					num_converter(num, 10, num_buff);
-					for(int j = 0; num_buff[j]; j++)
+					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
 					}
@@ -81,7 +85,7 @@ int _printf(const char *format, ...)
 					char num_buff[32];
 					num = va_arg(list, int);
 					pos_num_converter(num, 10, num_buff);
-					for(int j = 0; num_buff[j]; j++)
+					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
 					}
@@ -92,7 +96,7 @@ int _printf(const char *format, ...)
 					char num_buff[32];
 					num = va_arg(list, int);
 					pos_num_converter(num, 2, num_buff);
-					for(int j = 0; num_buff[j]; j++)
+					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
 					}
@@ -103,7 +107,7 @@ int _printf(const char *format, ...)
 					char num_buff[32];
 					num = va_arg(list, int);
 					pos_num_converter(num, 16, num_buff);
-					for(int j = 0; num_buff[j]; j++)
+					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
 					}
@@ -114,7 +118,7 @@ int _printf(const char *format, ...)
 					char num_buff[32];
 					num = va_arg(list, int);
 					num_converter(num, 8, num_buff);
-					for(int j = 0; num_buff[j]; j++)
+					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
 					}
@@ -127,11 +131,11 @@ int _printf(const char *format, ...)
 	counter_print++;
 	}
 	va_end(list);
-	return(counter_print++);
+	return (counter_print++);
 
 }
 
-
+/*
 int main()
 {
 	_printf("This prints a single char: %c and %c\n", 'H', 'U');
@@ -140,5 +144,6 @@ int main()
 	_printf("This is a normal string.\n");
 	_printf("This prints a negative decimal: %d \n", -10);
 	_printf("This prints a number converter to binary: %b \n", 7);
-	_printf("This prints a number converter to hex: %x \n", 10);
+	_printf("This prints a number %d converter to hex: %x \n", 10, 10);
 }
+*/
