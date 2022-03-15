@@ -80,6 +80,7 @@ int _printf(const char *format, ...)
 					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
+						counter_print++;
 					}
 					break;
 				}
@@ -91,6 +92,7 @@ int _printf(const char *format, ...)
 					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
+						counter_print++;
 					}
 					break;
 				}
@@ -102,6 +104,7 @@ int _printf(const char *format, ...)
 					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
+						counter_print++;
 					}
 					break;
 				}
@@ -113,6 +116,7 @@ int _printf(const char *format, ...)
 					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
+						counter_print++;
 					}
 					break;
 				}
@@ -124,6 +128,7 @@ int _printf(const char *format, ...)
 					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
+						counter_print++;
 					}
 					break;
 				}
