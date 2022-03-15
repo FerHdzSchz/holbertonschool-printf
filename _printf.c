@@ -88,7 +88,7 @@ int _printf(const char *format, ...)
 				{
 					char num_buff[32];
 					num = va_arg(list, int);
-					pos_num_converter(num, 10, num_buff);
+					num_converter(num, 10, num_buff);
 					for (j = 0; num_buff[j]; j++)
 					{
 						write(1, &num_buff[j], 1);
