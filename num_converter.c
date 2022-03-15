@@ -9,7 +9,7 @@ void pos_num_converter(int number, int base, char *tmp_buff)
 
 	if(number == 0)
 	{
-		*tmp_buff = '0';
+		*tmp_buff++ = '0';
 		*tmp_buff = 0;
 		return;
 	}
@@ -39,7 +39,7 @@ void pos_num_converter(int number, int base, char *tmp_buff)
 	{
 		*tmp_buff++ = buff[i];
 	}
-	*tmp_buff = buff[0];
+	*tmp_buff++ = buff[0];
 	*tmp_buff = 0;
 }
 
