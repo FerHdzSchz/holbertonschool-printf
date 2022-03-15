@@ -48,6 +48,7 @@ int _printf(const char *format, ...)
 			} else
 			{
 				write(1, &*format, 1);
+				counter_print++;
 			}
 		} else if (mode == 1)
 		{
@@ -57,6 +58,7 @@ int _printf(const char *format, ...)
 				{
 					s_chr = va_arg(list, int);
 					write(1, &s_chr, 1);
+					counter_print++;
 					break;
 				}
 				case 's':
@@ -66,6 +68,7 @@ int _printf(const char *format, ...)
 					while (*s_str)
 					{
 						write(1, &*s_str++, 1);
+						counter_print++;
 					}
 					break;
 				}
@@ -128,22 +131,8 @@ int _printf(const char *format, ...)
 			mode = 0;
 		}
 	format++;
-	counter_print++;
 	}
 	va_end(list);
 	return (counter_print++);
 
 }
-
-/*
-int main()
-{
-	_printf("This prints a single char: %c and %c\n", 'H', 'U');
-	_printf("This prints a string: %s and %s \n", "Hello World", "TEST");
-	_printf("This prints a decimal: %d succes and other number: %i\n", 1054, 20);
-	_printf("This is a normal string.\n");
-	_printf("This prints a negative decimal: %d \n", -10);
-	_printf("This prints a number converter to binary: %b \n", 7);
-	_printf("This prints a number %d converter to hex: %x \n", 10, 10);
-}
-*/
